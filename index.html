@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kumpulan Aplikasi | Software by Fahmi Yusuf</title>
+<meta name="description" content="Kumpulan aplikasi: SIPANDA, SIBIMTA, dan Monfre Studio.">
+<meta name="theme-color" content="#0f2a3f">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230f2a3f'/%3E%3Crect x='14' y='14' width='15' height='15' rx='4' fill='%23f2b705'/%3E%3Crect x='35' y='14' width='15' height='15' rx='4' fill='%23fff'/%3E%3Crect x='14' y='35' width='15' height='15' rx='4' fill='%23fff'/%3E%3Crect x='35' y='35' width='15' height='15' rx='4' fill='%233a9b1e'/%3E%3C/svg%3E">
+<style>
+  :root{--ink:#0f2a3f;--mut:#5d6f7f;--line:#e2e8ee;--bg:#f5f7f9;--gold:#f2b705}
+  *{box-sizing:border-box}
+  html,body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 "Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  .wrap{max-width:880px;margin:0 auto;padding:56px 20px 40px}
+  header{margin-bottom:34px}
+  .badge{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--mut);background:#fff;border:1px solid var(--line);border-radius:99px;padding:5px 12px 5px 6px}
+  .badge i{width:18px;height:18px;border-radius:6px;background:var(--ink);display:inline-block;position:relative}
+  .badge i::after{content:"";position:absolute;left:4px;top:4px;width:10px;height:10px;border-radius:3px;background:var(--gold)}
+  h1{font-size:clamp(30px,6vw,44px);line-height:1.08;letter-spacing:-.02em;margin:18px 0 10px;font-weight:800}
+  .lead{color:var(--mut);max-width:56ch;margin:0}
+  .grup{margin-top:34px}
+  .grup h2{font-size:14px;font-weight:700;color:var(--mut);margin:0 0 12px;display:flex;align-items:center;gap:10px}
+  .grup h2::after{content:"";flex:1;height:1px;background:var(--line)}
+  .list{display:grid;gap:14px}
+  .app{display:grid;grid-template-columns:64px 1fr auto;gap:18px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px 20px;
+       text-decoration:none;position:relative;overflow:hidden;transition:border-color .15s,transform .15s}
+  .app::before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--c)}
+  .app:hover{border-color:var(--c);transform:translateY(-1px)}
+  .app:focus-visible{outline:3px solid var(--c);outline-offset:2px}
+  .ico{width:64px;height:64px;border-radius:16px;background:var(--c);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:22px;letter-spacing:.02em;overflow:hidden}
+  .ico img{width:100%;height:100%;object-fit:cover;display:block;background:#fff}
+  .nama{font-size:20px;font-weight:800;line-height:1.2}
+  .kep{font-size:14px;color:var(--mut);margin-top:2px}
+  .desk{font-size:14.5px;margin-top:6px;color:#33495a}
+  .aksi{display:flex;flex-direction:column;gap:8px;align-items:flex-end}
+  .btn{display:inline-flex;align-items:center;gap:6px;white-space:nowrap;font-size:14px;font-weight:700;padding:9px 14px;border-radius:10px;background:var(--c);color:#fff;text-decoration:none}
+  .btn.alt{background:transparent;color:var(--c);border:1.5px solid var(--c);padding:7px 12px}
+  .btn svg{width:15px;height:15px}
+  footer{margin-top:44px;padding-top:18px;border-top:1px solid var(--line);color:var(--mut);font-size:13px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+  @media (max-width:620px){
+    .wrap{padding-top:36px}
+    .app{grid-template-columns:52px 1fr;gap:14px;padding:16px}
+    .ico{width:52px;height:52px;border-radius:14px;font-size:18px}
+    .aksi{grid-column:1/-1;flex-direction:row;align-items:stretch}
+    .aksi .btn{flex:1;justify-content:center}
+  }
+  @media (prefers-reduced-motion:reduce){.app{transition:none}.app:hover{transform:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <span class="badge"><i></i>Software by Fahmi Yusuf</span>
+    <h1>Kumpulan Aplikasi</h1>
+    <p class="lead">Pilih aplikasi yang ingin dibuka. Semua aplikasi berjalan di browser, bisa dibuka dari laptop maupun HP.</p>
+  </header>
+  <main id="daftar"></main>
+  <footer><span>Software by Fahmi Yusuf</span><span id="tahun"></span></footer>
+</div>
+
+<script>
+/* =====================================================================
+   DAFTAR APLIKASI
+   Untuk menambah aplikasi baru: salin satu blok { ... }, tempel di bawahnya,
+   lalu ubah isinya. "warna" bebas (kode hex). "ikon" boleh dikosongkan (''),
+   maka yang tampil adalah huruf "singkat".
+   ===================================================================== */
+var APLIKASI = [
+  {
+    grup: 'Akademik',
+    nama: 'SIPANDA',
+    kepanjangan: 'Sistem Informasi Penilaian Akademik Dahlan',
+    deskripsi: 'Nilai, presensi, jurnal perkuliahan, dan rekap format Penilaian CC.',
+    link: 'https://sipandaa.github.io/',
+    tombol: 'Panel dosen',
+    link2: 'https://sipandaa.github.io/?mahasiswa',
+    tombol2: 'Portal mahasiswa',
+    ikon: 'https://sipandaa.github.io/sipanda-icon-192.png',
+    singkat: 'SP',
+    warna: '#0b4f9c'
+  },
+  {
+    grup: 'Akademik',
+    nama: 'SIBIMTA',
+    kepanjangan: 'Sistem Informasi Bimbingan Tugas Akhir ITBADLA',
+    deskripsi: 'Bimbingan skripsi dan artikel: logbook, tahapan, dan kartu bimbingan.',
+    link: 'https://s.id/sibimTA',
+    tombol: 'Buka SIBIMTA',
+    link2: '', tombol2: '',
+    ikon: '',
+    singkat: 'SB',
+    warna: '#0d7a5f'
+  },
+  {
+    grup: 'Usaha',
+    nama: 'Monfre Studio',
+    kepanjangan: 'Booking dan antrean foto studio, Lamongan',
+    deskripsi: 'Booking online, cek progres pesanan, dan informasi paket.',
+    link: 'https://monfrestudio.github.io/',
+    tombol: 'Booking',
+    link2: 'https://www.monfrestudio.com/',
+    tombol2: 'Situs studio',
+    ikon: '',
+    singkat: 'MS',
+    warna: '#9a3b2f'
+  }
+];
+/* ===================================================================== */
+
+var PANAH = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>';
+function esc(s) { return String(s || '').replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
+function inisial(n, a) { if (a && a.singkat) return a.singkat; var p = String(n).trim().split(/\s+/); return (p.length > 1 ? p[0][0] + p[1][0] : n.slice(0, 2)).toUpperCase(); }
+
+var grup = [];
+APLIKASI.forEach(function (a) { if (grup.indexOf(a.grup) < 0) grup.push(a.grup); });
+document.getElementById('daftar').innerHTML = grup.map(function (g) {
+  return '<section class="grup"><h2>' + esc(g) + '</h2><div class="list">' +
+    APLIKASI.filter(function (a) { return a.grup === g; }).map(function (a) {
+      var ico = a.ikon
+        ? '<div class="ico"><img src="' + esc(a.ikon) + '" alt="" onerror="this.parentNode.textContent=\'' + esc(inisial(a.nama, a)) + '\'"></div>'
+        : '<div class="ico">' + esc(inisial(a.nama, a)) + '</div>';
+      return '<div class="app" style="--c:' + esc(a.warna) + '">' + ico +
+        '<div><div class="nama">' + esc(a.nama) + '</div><div class="kep">' + esc(a.kepanjangan) + '</div><div class="desk">' + esc(a.deskripsi) + '</div></div>' +
+        '<div class="aksi"><a class="btn" href="' + esc(a.link) + '" target="_blank" rel="noopener">' + esc(a.tombol || 'Buka') + PANAH + '</a>' +
+        (a.link2 ? '<a class="btn alt" href="' + esc(a.link2) + '" target="_blank" rel="noopener">' + esc(a.tombol2 || 'Buka') + '</a>' : '') +
+        '</div></div>';
+    }).join('') + '</div></section>';
+}).join('');
+document.getElementById('tahun').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
